@@ -10,3 +10,7 @@ hist(simulacaoDispersive)
 
 SimulacaoDispersiveCentral <- simulacaoDispersive - mean(simulacaoDispersive)
 hist(SimulacaoDispersiveCentral)
+
+
+
+
