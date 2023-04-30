@@ -8,7 +8,7 @@ hist(x$dispersive_nm_IDC)
 simulacaoDispersive <- x$dispersive_nm_IDC
 hist(simulacaoDispersive)
 
-SimulacaoDispersiveCentral <- simulacaoDispersive - mean(simulacaoDispersive)
+SimulacaoDispersiveCentral <- simulacaoDispersive - mean(simulacaoDispersive, na.rm = TRUE)
 hist(SimulacaoDispersiveCentral)
 
 
