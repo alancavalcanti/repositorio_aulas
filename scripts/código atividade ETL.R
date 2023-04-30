@@ -11,11 +11,11 @@ sinistrosRecife2021Raw <- read.csv2('http://dados.recife.pe.gov.br/dataset/44087
 # junta as bases de dados com comando rbind (juntas por linhas)
 colunas_iguais <- names(sinistrosRecife2020Raw[
   intersect(
-    names(sinistrosRecife2020Raw), names(sinistrosRecife2021Raw, names(sinistrosRecife2019Raw)))])
+    names(sinistrosRecife2020Raw), names(sinistrosRecife2021Raw))])
 
 sinistrosRecife2020Raw <- sinistrosRecife2020Raw %>% select(all_of(colunas_iguais))
 
-sinistrosRecifeRaw <- rbind(sinistrosRecife2020Raw, sinistrosRecife2021Raw, sinistrosRecife2019Raw)
+sinistrosRecifeRaw <- rbind(sinistrosRecife2020Raw, sinistrosRecife2021Raw)
 
 # observa a estrutura dos dados
 str(sinistrosRecifeRaw)
@@ -35,8 +35,4 @@ naZero <- function(x) {
 # aplica a função naZero a todas as colunas de contagem
 sinistrosRecifeRaw[, 15:25] <- sapply(sinistrosRecifeRaw[, 15:25], naZero)
 
-# exporta em formato nativo do R
-saveRDS(sinistrosRecifeRaw, "bases_tratadas/sinistrosRecife.rds")
-
-# exporta em formato tabular (.csv) - padrão para interoperabilidade
-write.csv2(sinistrosRecifeRaw, "bases_tratadas/sinistrosRecife.csv")
+save(sinistrosRecifeRaw, file = "sinistrosRecifeRaw.Rda")
