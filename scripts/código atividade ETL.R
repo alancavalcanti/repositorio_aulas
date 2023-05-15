@@ -33,3 +33,9 @@ naZero <- function(x) {
 sinistrosRecifeRaw[, 15:25] <- sapply(sinistrosRecifeRaw[, 15:25], naZero)
 
 save(sinistrosRecifeRaw, file = "sinistrosRecifeRaw.Rda")
+
+# exporta em formato nativo do R
+saveRDS(sinistrosRecifeRaw, "sinistrosRecife.rds")
+
+# exporta em formato tabular (.csv) - padrão para interoperabilidade
+write.csv2(sinistrosRecifeRaw, "sinistrosRecife.csv")
